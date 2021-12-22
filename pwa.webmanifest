@@ -1,7 +1,7 @@
 {
   "name": "Rune Exchange",
   "short_name": "Rune Exchange",
-  "description": "Webapp that let's you track Grand Exchange prices in Runescape!",
+  "description": "Webapp that lets you track Grand Exchange prices in Runescape!",
   "icons": [
     {
       "src": "./img/splash-screen.png",
