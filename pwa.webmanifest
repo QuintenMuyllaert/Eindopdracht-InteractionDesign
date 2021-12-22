@@ -4,12 +4,12 @@
   "description": "Webapp that let's you track Grand Exchange prices in Runescape!",
   "icons": [
     {
-      "src": "/img/splash-screen.png",
-      "sizes": "500x500",
+      "src": "./img/splash-screen.png",
+      "sizes": "512x512",
       "type": "image/png"
     }
   ],
-  "start_url": "/runescape",
+  "start_url": "./Eindopdracht-InteractionDesign",
   "display": "standalone",
   "theme_color": "#20223a",
   "background_color": "#20223a"
