@@ -1,0 +1,213 @@
+<!--./source//runescape.html-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="Description"
+      content="Webapp that let's you track Grand Exchange prices in Runescape!"
+    />
+    <meta name="theme-color" content="#20223a" />
+
+    <meta property="og:title" content="Rune Exchange" />
+    <meta
+      property="og:description"
+      content="Webapp that let's you track Grand Exchange prices in Runescape!"
+    />
+    <meta property="og:image" content="/img/icon.webp" />
+    <meta property="og:url" content="/" />
+    <meta property="og:site_name" content="Rune Exchange" />
+
+    <meta name="twitter:card" content="Rune Exchange" />
+    <meta name="twitter:image:alt" content="Rune Exchange Logo" />
+    <meta property="fb:app_id" content="Rune Exchange" />
+
+    <link rel="icon" type="image/webp" href="/img/icon.webp" />
+    <link rel="manifest" href="/pwa.webmanifest" />
+    <link rel="apple-touch-icon" href="/img/apple-touch.png" />
+
+    <title>Rune Exchange</title>
+    <link rel="stylesheet" href="./global.css" />
+    <link rel="stylesheet" href="./runescape.css" />
+  </head>
+  <body>
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("service-worker.js");
+      }
+    </script>
+    <script src="./chart.js"></script>
+    <script src="./runescape.js"></script>
+    <script src="./charts.js"></script>
+
+    <div class="grid-space">
+      <!--./components/logo.html-->
+      <div class="logo--container">
+        <img src="./img/icon.webp" alt="logo" />
+        <h1>Rune Exchange</h1>
+      </div>
+
+      <div>
+        <button id="favorite-main" class="itemdetail--favorite-button">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"
+            ></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div class="center">
+      <!--./components/hamburger.html-->
+      <div class="hamburger--icon-container">
+        <svg class="hamburger--icon" viewBox="0 0 24 24">
+          <path
+            class="hamburger--fill-color"
+            d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z"
+          ></path>
+        </svg>
+      </div>
+
+      <!--./components/inputfield.html-->
+      <div class="inputfield--container inputfield--">
+        <div class="inputfield--label-container">
+          <label for="searchbar"></label>
+          <span></span>
+        </div>
+        <div>
+          <input
+            class="inputfield--text-box"
+            id="searchbar"
+            type=""
+            placeholder="Search any item in RuneScape"
+          />
+          <div class="inputfield--show-icon"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="js-items">
+      <div class="notificationbox">
+        <h1 class="flex-center-vertical">No items found</h1>
+        <h2 class="flex-center-vertical">Try "water"</h2>
+      </div>
+    </div>
+    <!--./components/itemdetail.html-->
+    <div class="itemdetail--container">
+      <div class="itemdetail--detailfield">
+        <img
+          onerror="this.src='./1x1.png'"
+          class="itemdetail--item-image"
+          src="./fullres/fractured armadyl symbol.png"
+          alt="item background image"
+        />
+
+        <div class="itemdetail--content">
+          <button class="itemdetail--close-button">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
+              ></path>
+            </svg>
+          </button>
+
+          <div class="itemdetail--item-name">
+            <a class="itemdetail--item-name-link" href="https://runescape.wiki/"
+              ><h1 class="itemdetail--item-name">
+                Fractured armadyl symbol
+              </h1></a
+            >
+          </div>
+
+          <div class="itemdetail--chart">
+            <canvas id="myChart"></canvas>
+          </div>
+          <div class="itemdetail--buttonpanel">
+            <button id="favorite-detail" class="itemdetail--favorite-button">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"
+                ></path>
+              </svg>
+            </button>
+            <!--./components/roundbutton.html-->
+            <div class="roundbutton--container">
+              <input
+                class="roundbutton--input-element"
+                id="itemdetail-graph-30 days"
+                type="radio"
+                name="days"
+                =""
+                =""
+              />
+              <label class="roundbutton--label" for="itemdetail-graph-30 days"
+                >30 days</label
+              >
+            </div>
+
+            <!--./components/roundbutton.html-->
+            <div class="roundbutton--container">
+              <input
+                class="roundbutton--input-element"
+                id="itemdetail-graph-60 days"
+                type="radio"
+                name="days"
+                checked=""
+              />
+              <label class="roundbutton--label" for="itemdetail-graph-60 days"
+                >60 days</label
+              >
+            </div>
+
+            <!--./components/roundbutton.html-->
+            <div class="roundbutton--container">
+              <input
+                class="roundbutton--input-element"
+                id="itemdetail-graph-90 days"
+                type="radio"
+                name="days"
+                =""
+                =""
+              />
+              <label class="roundbutton--label" for="itemdetail-graph-90 days"
+                >90 days</label
+              >
+            </div>
+
+            <div class="itemdetail--hide-mobile">
+              <!--./components/roundbutton.html-->
+              <div class="roundbutton--container">
+                <input
+                  class="roundbutton--input-element"
+                  id="itemdetail-graph-alltime"
+                  type="radio"
+                  name="days"
+                  =""
+                  =""
+                />
+                <label class="roundbutton--label" for="itemdetail-graph-alltime"
+                  >alltime</label
+                >
+              </div>
+            </div>
+          </div>
+          <div class="itemdetail--item-description">
+            <div class="itemdetail--item-icon-container">
+              <img
+                onerror="this.src='./1x1.png'"
+                class="itemdetail--item-icon"
+                src="./icons/fractured armadyl symbol.png"
+                alt="item icon image"
+              />
+            </div>
+
+            <p class="itemdetail--item-description-text">Loading...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

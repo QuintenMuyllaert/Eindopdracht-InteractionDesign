@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+
+:root {
+  --global-color-background: #ccddff;
+  --global-color-foreground: #aabbff;
+  --global-color-text: #111166;
+  --global-color-label: #000000;
+
+  --global-color-border: #ccddff;
+  --global-color-border-hover: #caccd4;
+  --global-color-detail: #3385ff;
+  --global-color-detail-alpha: #3385ff55;
+
+  --global-color-error: #ff3333;
+  --global-color-error-alpha: #ff333355;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --global-color-background: #20223a;
+    --global-color-foreground: #35374d;
+    --global-color-text: #ffffff;
+    --global-color-label: #b5b6c0;
+
+    --global-color-border: #20223a;
+    --global-color-border-hover: #1f1f2f;
+    --global-color-detail: #3385ff;
+    --global-color-detail-alpha: #3385ff55;
+
+    --global-color-error: #ff3333;
+    --global-color-error-alpha: #ff333355;
+  }
+}
+
+::-webkit-scrollbar {
+  background-color: #00000033;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ffffff33;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: #00000033;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--global-color-foreground);
+  font-family: "Inter", sans-serif;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+
+  margin: 0;
+  overflow: overlay;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  color: var(--global-color-text);
+}
+
+img {
+  background-image: url("./1x1.png");
+}
+
+.grid-space {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  justify-content: space-between;
+}
+
+.disable-scroll {
+  overflow: hidden;
+}
+
+.center {
+  display: grid;
+  grid-template-columns: 1fr 10fr 1fr;
+  justify-content: center;
+  align-items: center;
+}
+
+.center > *:nth-child(2) {
+  justify-self: center;
+  width: 100%;
+}
+
+.floating {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background-color: #35374d;
+  z-index: 10;
+}
+
+.js-items {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.notificationbox {
+  text-align: center;
+}
