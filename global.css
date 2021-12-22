@@ -75,6 +75,7 @@ img {
   display: grid;
   grid-template-columns: repeat(2, auto);
   justify-content: space-between;
+  padding-right: 24px;
 }
 
 .disable-scroll {

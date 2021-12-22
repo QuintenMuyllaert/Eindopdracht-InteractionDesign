@@ -296,6 +296,9 @@
   .itemdetail--hide-mobile {
     display: none;
   }
+  .grid-space {
+    padding-right: 0;
+  }
 }
 
 @media screen and (orientation: portrait) {
